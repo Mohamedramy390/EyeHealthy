@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import spectrumImg from '../assets/spectrum.jpg';
 
 export default function Specs() {
   const { t } = useLanguage();
@@ -53,7 +54,7 @@ export default function Specs() {
           <div className="relative">
             <div className="glass-panel p-4" style={{ background: 'rgba(0,0,0,0.5)' }}>
               <img 
-                src="/src/assets/spectrum.jpg" 
+                src={spectrumImg} 
                 alt="Measured EyeHealthy Light Spectrum" 
                 style={{ width: '100%', height: 'auto', borderRadius: '10px' }} 
               />

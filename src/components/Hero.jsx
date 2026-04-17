@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Zap } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import heroLamp from '../assets/hero-lamp.png';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -30,7 +31,7 @@ export default function Hero() {
         
         <div className="hero-image-wrapper animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="hero-image-container">
-             <img src="/src/assets/hero-lamp.png" alt="EyeHealthy LED Lamp" className="hero-image" />
+             <img src={heroLamp} alt="EyeHealthy LED Lamp" className="hero-image" />
              <div className="hero-image-glow"></div>
           </div>
         </div>
