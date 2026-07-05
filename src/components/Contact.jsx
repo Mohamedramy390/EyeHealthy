@@ -6,10 +6,29 @@ export default function Contact() {
   const { t, lang } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    
+    // Create FormData from the form inputs
+    const formData = new FormData(e.target);
+    
+    try {
+      const endpoint = "https://api.sheetmonkey.io/form/apv2QYMPz5X7tXLPKTtLBT";
+      
+      await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+      });
+      
+      // Clear form inputs after submission
+      e.target.reset();
+      
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting the form. Please try again.");
+    }
   };
 
   return (
@@ -40,6 +59,7 @@ export default function Contact() {
                     <User size={20} />
                   </div>
                   <input 
+                    name="Name"
                     required 
                     type="text" 
                     placeholder={t.contact.name} 
@@ -53,6 +73,7 @@ export default function Contact() {
                     <Phone size={20} />
                   </div>
                   <input 
+                    name="Phone"
                     required 
                     type="tel" 
                     placeholder={t.contact.phone} 
@@ -67,6 +88,7 @@ export default function Contact() {
                   <Mail size={20} />
                 </div>
                 <input 
+                  name="Email"
                   required 
                   type="email" 
                   placeholder={t.contact.email} 
@@ -77,6 +99,7 @@ export default function Contact() {
 
               <div className="input-group">
                 <textarea 
+                  name="Message"
                   required 
                   rows="4" 
                   placeholder={t.contact.message} 
