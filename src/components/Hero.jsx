@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Zap } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import heroLamp from '../assets/hero-lamp.png';
+import heroLamp from '../assets/green.png';
 
 export default function Hero() {
   const { t } = useLanguage();
