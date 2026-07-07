@@ -9,19 +9,30 @@ import Comparison from './components/Comparison';
 import UseCases from './components/UseCases';
 import Contact from './components/Contact';
 
+import OrderPage from './pages/OrderPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function AppContent() {
   const { t } = useLanguage();
   
   return (
     <div className="min-h-screen bg-bg-dark">
       <Navbar />
-      <Hero />
-      <Objective />
-      <Features />
-      <Specs />
-      <Comparison />
-      <UseCases />
-      <Contact />
+      
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <Objective />
+            <Features />
+            <Specs />
+            <Comparison />
+            <UseCases />
+            <Contact />
+          </>
+        } />
+        <Route path="/order" element={<OrderPage />} />
+      </Routes>
       
       <footer className="py-8 text-center border-t mt-12 bg-black-20">
         <div className="container text-muted">
@@ -36,7 +47,9 @@ function AppContent() {
 function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <Router>
+        <AppContent />
+      </Router>
     </LanguageProvider>
   );
 }

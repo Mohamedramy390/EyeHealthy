@@ -1,0 +1,284 @@
+media:
+  input: src/assets
+  output: /assets
+
+content:
+  # ── Arabic Content ──────────────────────────────────────
+  - name: ar-hero
+    label: "🇪🇬 Hero Section (Arabic)"
+    type: file
+    path: src/content/ar/hero.json
+    fields:
+      - name: patent
+        label: Patent Badge Text
+        type: string
+      - name: titlePrefix
+        label: Title Prefix
+        type: string
+      - name: titleSuffix
+        label: Title Suffix
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: text
+      - name: cta
+        label: CTA Button Text
+        type: string
+
+  - name: ar-objective
+    label: "🇪🇬 Objective Section (Arabic)"
+    type: file
+    path: src/content/ar/objective.json
+    fields:
+      - name: titlePrefix
+        label: Title Prefix
+        type: string
+      - name: titleSuffix
+        label: Title Suffix
+        type: string
+      - name: content
+        label: Content
+        type: text
+
+  - name: ar-features
+    label: "🇪🇬 Features Section (Arabic)"
+    type: file
+    path: src/content/ar/features.json
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+      - name: subtitle
+        label: Section Subtitle
+        type: string
+      - name: items
+        label: Feature Items
+        type: list
+        fields:
+          - name: title
+            label: Feature Title
+            type: string
+          - name: description
+            label: Feature Description
+            type: text
+
+  - name: ar-order
+    label: "🇪🇬 Order Page (Arabic)"
+    type: file
+    path: src/content/ar/order.json
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+      - name: description
+        label: Product Description
+        type: text
+      - name: price
+        label: Price Text
+        type: string
+      - name: formTitle
+        label: Form Title
+        type: string
+      - name: name
+        label: Name Field Placeholder
+        type: string
+      - name: phone
+        label: Phone Field Placeholder
+        type: string
+      - name: email
+        label: Email Field Placeholder
+        type: string
+      - name: location
+        label: Location Field Placeholder
+        type: string
+      - name: items
+        label: Items Field Placeholder
+        type: string
+      - name: submit
+        label: Submit Button Text
+        type: string
+      - name: successTitle
+        label: Success Title
+        type: string
+      - name: successDesc
+        label: Success Description
+        type: text
+
+  - name: ar-nav
+    label: "🇪🇬 Navigation (Arabic)"
+    type: file
+    path: src/content/ar/nav.json
+    fields:
+      - name: home
+        label: Home Link
+        type: string
+      - name: objective
+        label: Objective Link
+        type: string
+      - name: features
+        label: Features Link
+        type: string
+      - name: specs
+        label: Specs Link
+        type: string
+      - name: science
+        label: Science Link
+        type: string
+      - name: contact
+        label: Contact Link
+        type: string
+      - name: language
+        label: Language Toggle Label
+        type: string
+
+  - name: ar-footer
+    label: "🇪🇬 Footer (Arabic)"
+    type: file
+    path: src/content/ar/footer.json
+    fields:
+      - name: rights
+        label: Rights Text
+        type: string
+      - name: patent
+        label: Patent Text
+        type: string
+
+  # ── English Content ──────────────────────────────────────
+  - name: en-hero
+    label: "🇬🇧 Hero Section (English)"
+    type: file
+    path: src/content/en/hero.json
+    fields:
+      - name: patent
+        label: Patent Badge Text
+        type: string
+      - name: titlePrefix
+        label: Title Prefix
+        type: string
+      - name: titleSuffix
+        label: Title Suffix
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: text
+      - name: cta
+        label: CTA Button Text
+        type: string
+
+  - name: en-objective
+    label: "🇬🇧 Objective Section (English)"
+    type: file
+    path: src/content/en/objective.json
+    fields:
+      - name: titlePrefix
+        label: Title Prefix
+        type: string
+      - name: titleSuffix
+        label: Title Suffix
+        type: string
+      - name: content
+        label: Content
+        type: text
+
+  - name: en-features
+    label: "🇬🇧 Features Section (English)"
+    type: file
+    path: src/content/en/features.json
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+      - name: subtitle
+        label: Section Subtitle
+        type: string
+      - name: items
+        label: Feature Items
+        type: list
+        fields:
+          - name: title
+            label: Feature Title
+            type: string
+          - name: description
+            label: Feature Description
+            type: text
+
+  - name: en-order
+    label: "🇬🇧 Order Page (English)"
+    type: file
+    path: src/content/en/order.json
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+      - name: description
+        label: Product Description
+        type: text
+      - name: price
+        label: Price Text
+        type: string
+      - name: formTitle
+        label: Form Title
+        type: string
+      - name: name
+        label: Name Field Placeholder
+        type: string
+      - name: phone
+        label: Phone Field Placeholder
+        type: string
+      - name: email
+        label: Email Field Placeholder
+        type: string
+      - name: location
+        label: Location Field Placeholder
+        type: string
+      - name: items
+        label: Items Field Placeholder
+        type: string
+      - name: submit
+        label: Submit Button Text
+        type: string
+      - name: successTitle
+        label: Success Title
+        type: string
+      - name: successDesc
+        label: Success Description
+        type: text
+
+  - name: en-nav
+    label: "🇬🇧 Navigation (English)"
+    type: file
+    path: src/content/en/nav.json
+    fields:
+      - name: home
+        label: Home Link
+        type: string
+      - name: objective
+        label: Objective Link
+        type: string
+      - name: features
+        label: Features Link
+        type: string
+      - name: specs
+        label: Specs Link
+        type: string
+      - name: science
+        label: Science Link
+        type: string
+      - name: contact
+        label: Contact Link
+        type: string
+      - name: language
+        label: Language Toggle Label
+        type: string
+
+  - name: en-footer
+    label: "🇬🇧 Footer (English)"
+    type: file
+    path: src/content/en/footer.json
+    fields:
+      - name: rights
+        label: Rights Text
+        type: string
+      - name: patent
+        label: Patent Text
+        type: string

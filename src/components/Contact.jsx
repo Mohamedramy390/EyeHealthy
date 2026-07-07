@@ -1,118 +1,75 @@
-import React, { useState } from 'react';
-import { Send, Mail, User, Phone } from 'lucide-react';
+import React from 'react';
+import { Zap, ShieldCheck, Truck, Headphones } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 export default function Contact() {
   const { t, lang } = useLanguage();
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    // Create FormData from the form inputs
-    const formData = new FormData(e.target);
-    
-    try {
-      const endpoint = "https://api.sheetmonkey.io/form/apv2QYMPz5X7tXLPKTtLBT";
-      
-      await fetch(endpoint, {
-        method: 'POST',
-        body: formData,
-      });
-      
-      // Clear form inputs after submission
-      e.target.reset();
-      
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error submitting the form. Please try again.");
-    }
-  };
+  const perks = lang === 'ar'
+    ? [
+        { icon: <Truck size={24} />, title: 'شحن لجميع أنحاء مصر', desc: 'نوصّل لباب بيتك أينما كنت' },
+        { icon: <ShieldCheck size={24} />, title: 'ضمان الجودة', desc: 'منتج معتمد وحاصل على براءة اختراع' },
+        { icon: <Headphones size={24} />, title: 'دعم متواصل', desc: 'فريقنا جاهز للإجابة على أسئلتك' },
+      ]
+    : [
+        { icon: <Truck size={24} />, title: 'Delivery Across Egypt', desc: 'We deliver straight to your door' },
+        { icon: <ShieldCheck size={24} />, title: 'Quality Guaranteed', desc: 'Certified, patented product' },
+        { icon: <Headphones size={24} />, title: 'Ongoing Support', desc: 'Our team is ready to answer your questions' },
+      ];
 
   return (
     <section className="contact-section py-24" id="contact">
-      <div className="glow-bg-blue" style={{ bottom: '0', right: '20%' }}></div>
-      <div className="container max-w-4xl">
-        <div className="glass-panel contact-panel relative">
+      <div className="glow-bg" style={{ top: '10%', right: '5%' }}></div>
+      <div className="glow-bg-blue" style={{ bottom: '0', left: '10%' }}></div>
+
+      <div className="container max-w-5xl">
+        <div className="cta-card">
           <div className="card-top-gradient"></div>
-          
-          <div className="text-center mb-10">
-            <h2 className="section-title text-white mb-4">{t.contact.title}</h2>
-            <p className="section-subtitle">{t.contact.subtitle}</p>
-          </div>
 
-          {isSubmitted ? (
-            <div className="success-message text-center animate-fade-in py-16">
-              <div className="success-icon mb-6">
-                <Send size={40} className="text-green" />
+          <div className="cta-inner">
+            {/* Heading */}
+            <div className="cta-heading">
+              <div className="badge badge-green" style={{ marginBottom: '1.25rem', display: 'inline-flex' }}>
+                <Zap size={16} />
+                {lang === 'ar' ? 'متاح للطلب الآن' : 'Available to Order Now'}
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">{t.contact.successTitle}</h3>
-              <p className="section-subtitle">{t.contact.successDesc}</p>
+              <h2 className="cta-title">
+                {lang === 'ar'
+                  ? <>احصل على <span className="text-gradient-green">EyeHealthy</span> اليوم</>
+                  : <>Get <span className="text-gradient-green">EyeHealthy</span> Today</>}
+              </h2>
+              <p className="cta-subtitle">
+                {lang === 'ar'
+                  ? 'استمتع بإضاءة صحية ومريحة تحمي عينيك وتوفر لك راحة بصرية لا مثيل لها — لك ولعائلتك.'
+                  : 'Experience healthy, comfortable lighting that protects your eyes and provides unmatched visual comfort — for you and your family.'}
+              </p>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-row">
-                <div className="input-group">
-                  <div className={`input-icon ${lang === 'ar' ? 'right-4' : 'left-4'}`} style={{ [lang === 'ar' ? 'right' : 'left']: '1rem' }}>
-                    <User size={20} />
+
+            {/* Perks */}
+            <div className="cta-perks">
+              {perks.map((p, i) => (
+                <div key={i} className="cta-perk">
+                  <div className="cta-perk-icon">{p.icon}</div>
+                  <div>
+                    <p className="cta-perk-title">{p.title}</p>
+                    <p className="cta-perk-desc">{p.desc}</p>
                   </div>
-                  <input 
-                    name="Name"
-                    required 
-                    type="text" 
-                    placeholder={t.contact.name} 
-                    className="form-input" 
-                    style={{ [lang === 'ar' ? 'paddingRight' : 'paddingLeft']: '3rem' }}
-                  />
                 </div>
-                
-                <div className="input-group">
-                  <div className={`input-icon ${lang === 'ar' ? 'right-4' : 'left-4'}`} style={{ [lang === 'ar' ? 'right' : 'left']: '1rem' }}>
-                    <Phone size={20} />
-                  </div>
-                  <input 
-                    name="Phone"
-                    required 
-                    type="tel" 
-                    placeholder={t.contact.phone} 
-                    className="form-input" 
-                    style={{ [lang === 'ar' ? 'paddingRight' : 'paddingLeft']: '3rem' }}
-                  />
-                </div>
-              </div>
+              ))}
+            </div>
 
-              <div className="input-group">
-                <div className={`input-icon ${lang === 'ar' ? 'right-4' : 'left-4'}`} style={{ [lang === 'ar' ? 'right' : 'left']: '1rem' }}>
-                  <Mail size={20} />
-                </div>
-                <input 
-                  name="Email"
-                  required 
-                  type="email" 
-                  placeholder={t.contact.email} 
-                  className="form-input" 
-                  style={{ [lang === 'ar' ? 'paddingRight' : 'paddingLeft']: '3rem' }}
-                />
-              </div>
-
-              <div className="input-group">
-                <textarea 
-                  name="Message"
-                  required 
-                  rows="4" 
-                  placeholder={t.contact.message} 
-                  className="form-input form-textarea"
-                ></textarea>
-              </div>
-
-              <button type="submit" className="btn-primary form-submit">
-                {t.contact.submit} <Send size={24} className={lang === 'ar' ? 'rotate-180' : ''} />
-              </button>
-            </form>
-          )}
-
+            {/* CTA Button */}
+            <div className="cta-actions">
+              <Link to="/order" className="cta-order-btn">
+                {lang === 'ar' ? 'اطلب الآن' : 'Order Now'}
+                <Zap size={22} />
+              </Link>
+              <p className="cta-note">
+                {lang === 'ar' ? '💳 الدفع عند الاستلام — لا حاجة لبطاقة مصرفية' : '💳 Cash on delivery — no card required'}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

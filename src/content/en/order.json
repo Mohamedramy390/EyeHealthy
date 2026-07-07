@@ -1,0 +1,14 @@
+{
+  "title": "Order EyeHealthy LED",
+  "description": "Enjoy comfortable and healthy lighting for you and your family.",
+  "price": "Price: 450 EGP",
+  "formTitle": "Order Details",
+  "name": "Full Name",
+  "phone": "Phone Number",
+  "email": "Email Address (Optional)",
+  "location": "Detailed Address",
+  "items": "Number of Items",
+  "submit": "Confirm Order",
+  "successTitle": "Order Confirmed!",
+  "successDesc": "Thank you, we will contact you soon to confirm shipping."
+}

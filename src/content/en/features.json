@@ -1,0 +1,10 @@
+{
+  "title": "Key Features",
+  "subtitle": "Why is EyeHealthy the smart choice?",
+  "items": [
+    { "title": "Save Electricity", "description": "Consumes significantly less power than traditional LED lamps to optimize consumption." },
+    { "title": "Patented Technology", "description": "Developed and certified at Egypt-Japan University of Science and Technology (E-JUST)." },
+    { "title": "Green Comfort Zone", "description": "Centered on the ~555 nm range, optimal for night reading." },
+    { "title": "Complete Night Eye Care", "description": "Reducing blue light to minimize strain and promote natural sleep cycles." }
+  ]
+}

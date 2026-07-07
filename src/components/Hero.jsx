@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Zap } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { Link } from 'react-router-dom';
 import heroLamp from '../assets/green.png';
 
 export default function Hero() {
@@ -23,9 +24,9 @@ export default function Hero() {
             {t.hero.subtitle}
           </p>
           <div className="hero-actions">
-            <a href="#contact" className="btn-primary">
+            <Link to="/order" className="btn-primary">
               {t.hero.cta} <Zap size={20} />
-            </a>
+            </Link>
           </div>
         </div>
         
