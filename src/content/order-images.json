@@ -1,7 +1,3 @@
 {
-  "images": [
-    "green.png",
-    "hero-lamp.png",
-    "spectrum.jpg"
-  ]
+  "images": "green.png,spectrum.jpg"
 }
