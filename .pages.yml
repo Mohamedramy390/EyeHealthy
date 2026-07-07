@@ -282,3 +282,17 @@ content:
       - name: patent
         label: Patent Text
         type: string
+
+  # ── Shared Content ──────────────────────────────────────
+  - name: order-images
+    label: "🖼️ Order Page Images"
+    type: file
+    path: src/content/order-images.json
+    fields:
+      - name: images
+        label: Product Images
+        type: list
+        field:
+          name: image
+          label: Image
+          type: image
