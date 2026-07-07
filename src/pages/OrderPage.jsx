@@ -5,26 +5,18 @@ import { Link } from 'react-router-dom';
 import heroLamp from '../assets/green.png';
 import altLamp from '../assets/hero-lamp.png';
 import spectrumImage from '../assets/spectrum.jpg';
-import orderImagesData from '../content/order-images.json';
-
-const imageMap = {
-  'green.png': heroLamp,
-  'hero-lamp.png': altLamp,
-  'spectrum.jpg': spectrumImage,
-};
 
 const validatePhone = (phone) => /^(01)[0-2,5]{1}[0-9]{8}$/.test(phone.replace(/\s/g, ''));
 
 export default function OrderPage() {
   const { t, lang } = useLanguage();
-  
-  const productImages = orderImagesData.images.map(img => imageMap[img] || heroLamp);
-
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [mainImage, setMainImage] = useState(productImages[0] || heroLamp);
+  const [mainImage, setMainImage] = useState(heroLamp);
   const [phoneError, setPhoneError] = useState('');
   const [phoneValue, setPhoneValue] = useState('');
+
+  const productImages = [heroLamp, altLamp, spectrumImage];
 
   const handlePhoneChange = (e) => {
     const val = e.target.value;
